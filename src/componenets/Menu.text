@@ -1,0 +1,439 @@
+// import React, { useState } from 'react'
+// import styled from "styled-components"
+// import logos from "../img/mediahub5.png"
+// import { IoHomeOutline } from "react-icons/io5";
+// import { MdOutlineExplore } from "react-icons/md";
+// import { MdOutlineSubscriptions } from "react-icons/md";
+// import { FaHistory } from "react-icons/fa";
+// import { MdOutlineVideoLibrary } from "react-icons/md";
+// import { CiSettings } from "react-icons/ci";
+// import { VscReport } from "react-icons/vsc";
+// import { IoIosHelpCircleOutline } from "react-icons/io";
+// import { MdOutlineLightMode } from "react-icons/md";
+// import { FaRegUserCircle } from "react-icons/fa";
+// import { Link, NavLink, useNavigate } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import { RxHamburgerMenu } from "react-icons/rx";
+
+// const Container=styled.div`
+//     flex:1;
+//     background-color:${({theme})=>theme.bgLighter};
+//     height:100vh;
+//     color:${({theme})=>theme.text};
+//     font-size:14px;
+//     position:sticky;
+//     top:0;
+// `;
+
+// const Wrapper=styled.div`
+//     padding:18px 26px;
+
+// `;
+
+// const Logo =styled.div`
+//     display:flex;
+//     align-items:center;
+//     gap:5px;
+//     font-weight:bold;
+//     margin-bottom:25px;
+
+// `;
+
+// const Img=styled.img`
+//     height:35px;
+//     width:130px;
+// `;
+
+// const Item=styled.div`
+//     display:flex;
+//     align-items:center;
+//     gap:19px;
+//     cursor:pointer;
+//     padding:7px 0px;
+//     font-weight:bold;
+
+//     &:hover{
+//         background-color:${({theme})=>theme.soft}
+//     }
+// `;
+
+// const Hr=styled.hr`
+//     margin:15px 0px;
+//     border:0.5px solid ${({theme})=>theme.soft};
+
+// `;
+// const Login=styled.div`
+
+// `;
+
+// const Button=styled.button`
+//     padding:5px 15px;
+//     background-color:transparent;
+//     border:1px solid #3ea6ff;
+//     color:#3ea6ff;
+//     border-radius:3px;
+//     font-weight:500;
+//     margin-top:10px;
+//     cursor:pointer;
+//     display:flex;
+//     align-items:center;
+//     gap:5px;
+// `;
+
+// const Title=styled.h2`
+//     font-size:14px;
+//     font-weight:500;
+//     color:#aaaaaa;
+//     margin-bottom:20px;
+// `;
+
+// const HamburgerIcon = styled.div`
+//   display: none; /* Hide hamburger icon by default */
+//   cursor: pointer;
+//   color: ${({ theme }) => theme.text};
+//   font-size: 20px;
+
+//   @media (max-width: 768px) {
+//     display: block; /* Display hamburger icon on smaller screens */
+//   }
+// `;
+
+// function Menu({darkMode,setDarkMode}) {
+//     const {currentUser}=useSelector((state)=>state.user)
+    
+//     const [isOpen, setIsOpen] = useState(false);
+
+//     const toggleMenu = () => {
+//         setIsOpen(!isOpen);
+//     };
+
+//     const closeMenu = () => {
+//         setIsOpen(false);
+//     };
+    
+//     return (
+//             <Container classname="flex flex-col h-screen bg-gray-800 text-white text-base">
+//               <Wrapper>
+//               <Link to="/" style={{textDecoration:"none",color:"inherit"}}>
+//                 <Logo>
+//                     <Img src={logos} alt="image not found"/>
+//                     {/* Media Hub */}
+//                 </Logo>
+//                 </Link>  
+                
+//                 <HamburgerIcon onClick={toggleMenu}>
+//                 <RxHamburgerMenu />
+//                 </HamburgerIcon>
+
+//                 {isOpen && (
+//                     <Item onClick={closeMenu}> {/* Close menu when an item is clicked */}
+//                         {currentUser ? (
+//                     <div>
+//                         {currentUser.name === "Admin" ?  (
+//                             <Link to="/AdminHome" style={{textDecoration:"none",color:"inherit"}}>
+//                                 <Item>
+//                                     <IoHomeOutline />Admin Home 
+//                                 </Item>
+//                             </Link>
+//                     ) : (
+//                             <Link to="/" style={{textDecoration:"none",color:"inherit"}}>
+//                                 <Item>
+//                                     <IoHomeOutline /> Home
+
+//                                 </Item>
+//                             </Link>
+
+//                         )}                                    
+//                     </div>
+//                         ) : (
+//                         <Link to="/" style={{textDecoration:"none",color:"inherit"}}>
+//                             <Item>
+//                                 <IoHomeOutline /> Home
+//                             </Item>
+//                         </Link>
+//                 )}
+
+//                 {currentUser ? (
+//                     <div>
+//                         {currentUser.name === "Admin" ?  (
+//                             <Link to="UserProfile" style={{textDecoration:"none",color:"inherit"}}>
+//                                 <Item>
+//                                     <IoHomeOutline />User Profile
+//                                 </Item>
+//                             </Link>
+//                         ) : (
+//                             <Link to="trends" style={{textDecoration:"none",color:"inherit"}}>
+//                                 <Item>
+//                                     <MdOutlineExplore />
+//                                         Trending 
+//                                 </Item>
+//                             </Link>
+//                         )}                                    
+//                     </div>
+//                         ) : (
+//                             <Link to="trends" style={{textDecoration:"none",color:"inherit"}}>
+//                                 <Item>
+//                                     <MdOutlineExplore />
+//                                         Trending 
+//                                     </Item>
+//                                 </Link>
+//                 )}
+//                 {currentUser ? (
+//                                 <div>
+//                                     {currentUser.name === "Admin" ?  (
+//                                         <Link to="AdminProfile" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <IoHomeOutline />Admin profile
+//                                             </Item>
+//                                         </Link>
+//                                         ) : (
+//                                             <Link to="subs" style={{textDecoration:"none",color:"inherit"}}>
+//                                                 <Item>
+//                                                     <MdOutlineSubscriptions /> Subcription
+//                                                 </Item>
+//                                             </Link>
+
+//                                             )}                                    
+//                                 </div>
+//                                     ) : (
+//                                     <></>
+//                 )}
+//                 {currentUser ? (
+//                                 <div>
+//                                     {currentUser.name === "Admin" ?  (
+//                                         <>
+//                                         <Link to="basicControls" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <IoHomeOutline />Basic Controls
+//                                             </Item>
+//                                         </Link>
+//                                         <Hr/>
+//                                         </>
+//                                         ) : (
+//                                             <Link to="Library" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <MdOutlineVideoLibrary /> Library
+//                                             </Item>
+//                                             </Link>
+
+//                                             )}                                    
+//                                 </div>
+//                                     ) : (
+//                                         <Link to="Library" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <MdOutlineVideoLibrary /> Library
+//                                             </Item>
+//                                             </Link>
+//                 )}
+
+//                 {currentUser ? (
+//                                 <div>
+//                                     {currentUser.name === "Admin" ?  (
+//                                         <Link to="/" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <IoHomeOutline />Admin 
+//                                             </Item>
+//                                         </Link>
+//                                         ) : (
+//                                             <>
+//                                             <Link to="subscriptions" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <FaHistory /> History
+//                                             </Item>
+//                                         </Link>
+//                                             <Hr/>
+//                                             </>
+//                                             )}                                    
+//                                 </div>
+//                                     ) : (
+//                                         <>
+//                                         <Link to="history" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <FaHistory /> History
+//                                             </Item>
+//                                         </Link>
+//                                         <Hr/>
+//                                         </>
+//                 )}
+
+                
+//                 {!currentUser &&  
+//                     <>
+//                         <Login>
+//                             Sign in to like videos,comments and subscribe.
+//                             <Link to="signin" style={{textDecoration:"none"}}>
+//                                 <Button><FaRegUserCircle />SIGN IN</Button>
+//                             </Link>
+
+//                         </Login>
+//                         <Hr/>        
+//                     </>
+//                 }                
+
+//                 {currentUser ? (
+//                                 <div>
+//                                     {currentUser.name === "Admin" ?  (
+//                                         <div></div>
+//                                         ) : (
+//                                             <Link to="blogs" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <MdOutlineExplore />
+//                                                     Blogs 
+//                                             </Item>
+//                                         </Link>
+
+//                                             )}                                    
+//                                 </div>
+//                                     ) : (
+//                                         <Link to="blogs" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <MdOutlineExplore />
+//                                                     Blogs 
+//                                             </Item>
+//                                         </Link>
+//                 )}
+
+//                 {currentUser ? (
+//                                 <div>
+//                                     {currentUser.name === "Admin" ?  (
+//                                         <div></div>
+//                                         ) : (
+//                                             <Link to="uploadBlogs" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <MdOutlineExplore />
+//                                                     Upload Blogs
+//                                             </Item>
+//                                             </Link>
+
+//                                             )}                                    
+//                                 </div>
+//                                     ) : (
+//                                         <Link to="uploadBlogs" style={{textDecoration:"none",color:"inherit"}}>
+//                                         <Item>
+//                                             <MdOutlineExplore />
+//                                                 Upload Blogs
+//                                         </Item>
+//                                         </Link>
+//                 )}
+
+//                 {currentUser ? (
+//                                 <div>
+//                                     {currentUser.name === "Admin" ?  (
+//                                         <div></div>
+//                                         ) : (
+//                                             <>
+//                                             <Link to="tweet" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <MdOutlineExplore />
+//                                                     Tweet 
+//                                             </Item>
+//                                             </Link>
+//                                             <Hr/>
+//                                         </>   
+//                                             )}                                    
+//                                 </div>
+//                                     ) : (
+//                                         <>
+//                                             <Link to="tweet" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <MdOutlineExplore />
+//                                                     Tweet 
+//                                             </Item>
+//                                             </Link>
+//                                             <Hr/>
+//                                         </>
+//                 )}
+
+//                 {currentUser ? (
+//                                 <div>
+//                                     {currentUser.name === "Admin" ?  (
+//                                         <div></div>
+//                                         ) : (
+//                                             <>
+//                                             <Link to="profile" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <MdOutlineExplore />
+//                                                     Profile
+//                                             </Item>
+//                                             </Link>
+//                                             <Hr/>
+//                                         </>   
+//                                             )}                                    
+//                                 </div>
+//                                     ) : (
+//                                         <>
+                                            
+//                                         </>
+//                 )}  
+//                 {currentUser ? (
+//                                 <div>
+//                                     {currentUser.name === "Admin" ?  (
+//                                         <div></div>
+//                                         ) : (
+//                                             <>
+//                                             <Link to="feedback" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <MdOutlineExplore />
+//                                                 Feedback
+//                                             </Item>
+//                                             </Link>
+//                                         </>   
+//                                             )}                                    
+//                                 </div>
+//                                     ) : (
+//                                         <>
+//                                         </>
+//                 )}  
+
+//                 {currentUser ? (
+//                     <div>
+//                         {currentUser.name === "Admin" ?  (
+//                             <div></div>
+//                             ) : (
+//                             <>
+//                             <Link to="profile" style={{textDecoration:"none",color:"inherit"}}>
+//                             <Item>
+//                                 <CiSettings /> Settings
+//                             </Item>
+//                             </Link>
+//                             </>   
+//                         )}                                    
+//                     </div>
+//                         ) : (
+//                             <>
+//                             </>
+//                 )}  
+
+
+//                 {currentUser ? (
+//                                 <div>
+//                                     {currentUser.name === "Admin" ?  (
+//                                         <div></div>
+//                                         ) : (
+//                                             <>
+//                                             </>   
+//                                             )}                                    
+//                                 </div>
+//                                     ) : (
+//                                         <>
+//                                             <Link to="profile" style={{textDecoration:"none",color:"inherit"}}>
+//                                             <Item>
+//                                                 <IoIosHelpCircleOutline /> Help
+//                                             </Item>
+//                                             </Link>
+                                            
+//                                         </>
+//                 )}  
+                
+//                 <Item onClick={()=>setDarkMode(!darkMode)}>
+//                 <MdOutlineLightMode /> {darkMode ? "Light" : "Dark"} Mode
+//                 </Item>
+
+//                     </Item>
+//                 )}
+
+//         </Wrapper>
+//     </Container>
+//     );  
+// };
+// export default Menu;
