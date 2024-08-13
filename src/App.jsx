@@ -8,34 +8,34 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Home from "./pages/Home";
-import Video from './pages/Video';
-import Signin from "./pages/Signin";
-import Help from "./pages/Help";
-import Blogs from "./pages/Blogs";
-import Bloging from "./pages/Bloging";
-import UploadBlogs from "./pages/UploadBlogs";
-import Tweet from "./pages/Tweet";
+import Home from "./pages/Home.jsx";
+import Video from './pages/Video.jsx';
+import Signin from "./pages/Signin.jsx";
+import Help from "./pages/Help.jsx";
+import Blogs from "./pages/Blogs.jsx";
+import Bloging from "./pages/Bloging.jsx";
+import UploadBlogs from "./pages/UploadBlogs.jsx";
+import Tweet from "./pages/Tweet.jsx";
 import { useSelector } from 'react-redux';
-import AdminHome from "./Admin/AdminHome";
-import FeedbackPage from "./pages/Feedback";
-import ProfilePage from "./pages/Profile";
-import AdminProfile from "./Admin/AdminProfile";
-import AdminUserPanel from "./Admin/UserProfile";
-import BasicControls from "./Admin/BasicControls";
-import Subscription from "./pages/Subscription";
-import Library from "./Libraray/Library";
-import Tweets from "./Tweets/Tweets";
-import Signup from "./pages/Signup";
-import History from "./History/History";
-import Search from "./pages/Search";
-import SubscribedVideo from "./subscribedVideo/SubscribedVideo";
-import NewsComponent from "./News/NewsComponets";
+import AdminHome from "./Admin/AdminHome.jsx";
+import FeedbackPage from "./pages/Feedback.jsx";
+import ProfilePage from "./pages/Profile.jsx";
+import AdminProfile from "./Admin/AdminProfile.jsx";
+import AdminUserPanel from "./Admin/UserProfile.jsx";
+import BasicControls from "./Admin/BasicControls.jsx";
+import Subscription from "./pages/Subscription.jsx";
+import Library from "./Libraray/Library.jsx";
+import Tweets from "./Tweets/Tweets.jsx";
+import Signup from "./pages/Signup.jsx";
+import History from "./History/History.jsx";
+import Search from "./pages/Search.jsx";
+import SubscribedVideo from "./subscribedVideo/SubscribedVideo.jsx";
+import NewsComponent from "./News/NewsComponets.jsx";
 // import Music from "../../mediahub/models/Music";
-import MusicComponents from "./Music/MusicComponents";
-import UploadMusic from "./Music/UploadMusic";
-import MusicPart from "./Music/MusicPart";
-import ForgotPassword from "./componenets/ForgotPassword";
+import MusicComponents from "./Music/MusicComponents.jsx";
+import UploadMusic from "./Music/UploadMusic.jsx";
+import MusicPart from "./Music/MusicPart.jsx";
+import ForgotPassword from "./componenets/ForgotPassword.jsx";
 
 
 const Container = styled.div`
